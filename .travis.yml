@@ -6,7 +6,7 @@ jobs:
         - 7.0
       script: "./run_tests.sh"
     - stage: dicto.sh
-      if: type=cron
+      if: env(TRAVIS_EVENT_TYPE)=cron
       script: ./run_dicto.sh
 install:
     - cd .. && git clone https://github.com/vollnixx/TravisResults.git && cd TravisWorkflow
