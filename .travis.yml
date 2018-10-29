@@ -1,12 +1,10 @@
 language: php
-php:
-- 7.0
-- 7.1
-script: "./run_tests.sh"
 jobs:
   include:
     - stage: unittests
-      script: ./run_test.sh
+      php:
+        - 7.0
+      script: "./run_tests.sh"
     - stage: dicto.sh
       if: TRAVIS_EVENT_TYPE=cron
       script: ./run_dicto.sh
