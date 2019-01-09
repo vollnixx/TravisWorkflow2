@@ -4,13 +4,12 @@ jobs:
     - stage: unittests
       php:
         - 7.0
-      script:
-      echo $TRAVIS_EVENT_TYPE . "HELLO MOTO"
-      if [[ $TRAVIS_EVENT_TYPE == "cron" ]]; then
-        "./run_tests.sh"
-      fi
+      script: if [ $TRAVIS_EVENT_TYPE == "cron" ]; then ./run_tests.sh fi
+    - stage: dicto.sh
+      if: env(TRAVIS_EVENT_TYPE) IS present AND env(TRAVIS_EVENT_TYPE) == cron
+      script: ./run_dicto.sh
 install:
-    - cd .. && git clone https://github.com/vollnixx/TravisResults.git && cd TravisWorkflow2
+    - cd .. && git clone https://github.com/vollnixx/TravisResults.git && cd TravisWorkflow
 env:
   global:
     secure: Uym7PMLwhkWQn7VmB2bJUvClfzs8pPyJofA2fK+OHbefxmTdynteIAx11r6fFrL7bORfVpxIbfJOU2tGdNo4IesYaHG0g1M1ZS9Rt/Vxp9TbiUe0JrpP7ukKEBH88umswNeYydR6G8vT63T3ALRyG+S+rG4XgDvls4nL6tFMEX5rL6RRsH5E1gnaJsR2drR5x5sHw2/8fZ4Lg8PjDPWwsF1mhlTrco1N90Vcl9wHk6xD7WJxStIHIjxVRdQPrLfDfM2OLwGI6fQjuZT3Y0lrnivmiDbJB9WX4sFypbLiMBEN3Jw9Su1MSMhNPMqzpTbC/9g8d3Hjb9P55FK38d6k/MuxfRO6ElpyWyPSFfCocyc9+bVfXErR0mLTzU7fwKv/zVC511vLagARWpp1U/8BVtDKof45Xbw9RCKDC35D4fOygapu2qIK6nA6Ge3YzUjEe6MWyUFr1QdcQHQkv4P4W4hhhp4hMQdDelEGuNuqnm3PoD+8fZGG8w0PgiHRwEAAz0YBTaicXX7rpEvrVEvOd9BJADYNW+q7GezYGOed2qE2XhbmFPn0DccFOdi1mgRYGsZPpFKoQX1UsggtXu38hu1GfAjRZH1ap9h7tn6zNj8cWRUURJqM2gcLBwl5h1LkwhI+IXXelbfk56k9da7MIpvUTmBTfTCfIKe8jlZGaRY=
