@@ -7,10 +7,7 @@ jobs:
       script: "./run_tests.sh"
     - stage: dicto.sh
       script:
-    - vendor/bin/phpunit
-
-    - |
-      if [[ $TRAVIS_EVENT_TYPE == "cron" ]]; then
+    - if [[ $TRAVIS_EVENT_TYPE == "cron" ]]; then
         ./run_dicto.sh
       fi
 install:
