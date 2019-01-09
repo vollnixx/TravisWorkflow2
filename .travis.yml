@@ -11,10 +11,12 @@ jobs:
       script: 
            - echo "THIS_REPO=${THIS_REPO}"
            - echo "COQ_VERSION=${COQ_VERSION}"
-           - echo "TRAVIS_BRANCH=${TRAVIS_BRANCH}"
+           - echo "TRAVIS_BRANCH=$TRAVIS_BRANCH"
            - echo "REMOTE_ORIGIN_URL=${REMOTE_ORIGIN_URL}"
-           - echo "TRAVIS_EVENT_TYPE=${TRAVIS_EVENT_TYPE}"
+           - echo "TRAVIS_EVENT_TYPE=$TRAVIS_EVENT_TYPE"
            - echo "TRAVIS_COMMIT=${TRAVIS_COMMIT}"
+           - DATE=`date '+%Y-%m-%d-%H:%M:%S'`
+           - echo "Hello World" > results/"$DATE.txt"
     - stage: dicto.sh
       script: 
       - |
