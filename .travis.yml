@@ -4,7 +4,11 @@ jobs:
     - stage: unittests
       php:
         - 7.0
-      script: if [ $TRAVIS_EVENT_TYPE == "cron" ]; then ./run_tests.sh fi
+      script: 
+      - |
+        if [ $TRAVIS_EVENT_TYPE == "cron" ]; then
+          ./run_tests.sh
+        fi
     - stage: dicto.sh
       if: env(TRAVIS_EVENT_TYPE) IS present AND env(TRAVIS_EVENT_TYPE) == cron
       script: ./run_dicto.sh
