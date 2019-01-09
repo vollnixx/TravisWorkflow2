@@ -9,7 +9,8 @@ jobs:
     - stage: dicto.sh
       script: 
       - |
-        if [ $TRAVIS_EVENT_TYPE == "cron" ]; then
+        if [ $TRAVIS_EVENT_TYPE != "cron" ]; then
+          echo "$TRAVIS_EVENT_TYPE" . "Hello"
           ./run_dicto.sh
         fi
 install:
