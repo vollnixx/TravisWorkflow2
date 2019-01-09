@@ -5,13 +5,13 @@ jobs:
       php:
         - 7.0
       script: 
-          echo $TRAVIS_EVENT_TYPE . "Hello"
+         - echo $TRAVIS_EVENT_TYPE . "Hello"
     - stage: dicto.sh
       script: 
       - |
         if [ $TRAVIS_EVENT_TYPE != "cron" ]; then
-          echo $TRAVIS_EVENT_TYPE . "Hello"
-          ./run_dicto.sh
+         - echo $TRAVIS_EVENT_TYPE . "Hello"
+         - ./run_dicto.sh
         fi
 install:
     - cd .. && git clone https://github.com/vollnixx/TravisResults.git && cd TravisWorkflow2
