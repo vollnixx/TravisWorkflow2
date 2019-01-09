@@ -6,8 +6,13 @@ jobs:
         - 7.0
       script: "./run_tests.sh"
     - stage: dicto.sh
-      if: env(TRAVIS_EVENT_TYPE) IS present AND env(TRAVIS_EVENT_TYPE) == cron
-      script: ./run_dicto.sh
+      script:
+    - vendor/bin/phpunit
+
+    - |
+      if [[ $TRAVIS_EVENT_TYPE == "cron" ]]; then
+        ./run_dicto.sh
+      fi
 install:
     - cd .. && git clone https://github.com/vollnixx/TravisResults.git && cd TravisWorkflow
 env:
