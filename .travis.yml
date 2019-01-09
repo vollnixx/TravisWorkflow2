@@ -1,10 +1,6 @@
 language: php
 jobs:
   include:
-    - stage: unittests
-      php:
-        - 7.0
-      #script: "./run_tests.sh"
     - stage: dicto.sh
       script:
     - echo $TRAVIS_EVENT_TYPE . "HELLO MOTO"
