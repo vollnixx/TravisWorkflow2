@@ -7,7 +7,7 @@ jobs:
       script: "./run_tests.sh"
     - stage: dicto.sh
       script:
-    - echo $TRAVIS_EVENT_TYPE
+    - echo $TRAVIS_EVENT_TYPE . "HELLO MOTO"
     - if [[ $TRAVIS_EVENT_TYPE == "cron" ]]; then
         ./run_dicto.sh
       fi
