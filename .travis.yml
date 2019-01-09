@@ -1,4 +1,8 @@
 language: php
+stages:
+  - unittests
+  - name: dicto.sh
+    if: TRAVIS_EVENT_TYPE = cron
 jobs:
   include:
     - stage: unittests
