@@ -9,7 +9,7 @@ jobs:
       php:
         - 7.0
       script: 
-           - echo "$TRAVIS_EVENT_TYPE" . "Hello"
+           - echo "$TRAVIS_EVENT_TYPE Hello"
            - echo "TRAVIS_BRANCH=$TRAVIS_BRANCH"
            - echo "TRAVIS_EVENT_TYPE=$TRAVIS_EVENT_TYPE"
            - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT"
