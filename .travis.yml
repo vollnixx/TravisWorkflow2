@@ -1,16 +1,16 @@
 language: php
 jobs:
   include:
-    - stage: dicto.sh
-      script:
-        - echo $TRAVIS_EVENT_TYPE . "HELLO MOTO"
-        - if [[ $TRAVIS_EVENT_TYPE == "cron" ]]; then
-          ./run_dicto.sh
-        fi
     - stage: unittests
       php:
         - 7.0
-      script: "./run_tests.sh"
+      #script: "./run_tests.sh"
+    - stage: dicto.sh
+      script:
+    - echo $TRAVIS_EVENT_TYPE . "HELLO MOTO"
+    - if [[ $TRAVIS_EVENT_TYPE == "cron" ]]; then
+        ./run_dicto.sh
+      fi
 install:
     - cd .. && git clone https://github.com/vollnixx/TravisResults.git && cd TravisWorkflow2
 env:
