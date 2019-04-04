@@ -1,0 +1,382 @@
+ILIAS PHPUnit-Tests need installed dev-requirements, please install using 'composer install' in ./libs/composer 
+
+Adding Suite: ilServicesFileDeliverySuite
+Adding Suite: ilServicesCertificateSuite
+Adding Suite: ilServicesMailSuite
+Adding Suite: ilServicesWorkflowEngineSuite
+Adding Suite: ilServicesPasswordSuite
+Adding Suite: ilServicesAccessControlSuite
+Adding Suite: ilServicesAuthenticationSuite
+Adding Suite: ilServicesTrackingSuite
+Adding Suite: ilServicesUtilitiesSuite
+Adding Suite: ilServicesPDFGenerationSuite
+Adding Suite: ilServicesUserSuite
+Adding Suite: ilServicesTermsOfServiceSuite
+Adding Suite: ilServicesAdministrationSuite
+Adding Suite: ilServicesStyleSuite
+Adding Suite: ilServicesMembershipSuite
+Adding Suite: ilServicesInitSuite
+Adding Suite: ilServicesWebAccessCheckerSuite
+Adding Suite: ilServicesContactSuite
+Adding Suite: ilServicesUICoreSuite
+Adding Suite: ilServicesMetaDataSuite
+Adding Suite: ilServicesMathSuite
+Adding Suite: ilServicesXHTMLPageSuite
+Adding Suite: ilServicesCacheSuite
+Adding Suite: ilServicesAuthApacheSuite
+Adding Suite: ilServicesTreeSuite
+Adding Suite: ilServicesObjectSuite
+Adding Suite: ilServicesContextSuite
+Adding Suite: ilServicesDatabaseSuite
+Adding Suite: ilModulesTestQuestionPoolSuite
+Adding Suite: ilModulesWebResourceSuite
+Adding Suite: ilModulesIndividualAssessmentSuite
+Adding Suite: ilModulesCourseSuite
+Adding Suite: ilModulesTestSuite
+Adding Suite: ilModulesDataCollectionSuite
+Adding Suite: ilModulesStudyProgrammeSuite
+Adding Test-Suite: URITest
+Adding Test-Suite: DataSizeTest
+Adding Test-Suite: DataReadmeTest
+Adding Test-Suite: DataFactoryTest
+Adding Test-Suite: ColorTest
+Adding Test-Suite: ResultTest
+Adding Test-Suite: PasswordTest
+Adding Test-Suite: ClientIdTest
+Adding Test-Suite: TransformationFactoryTest
+Adding Test-Suite: TypeTest
+Adding Test-Suite: ValueTest
+Adding Test-Suite: TaskTest
+Adding Test-Suite: ILIAS\BackgroundTasks\Implementation\Persistence\BasicPersistenceTest
+Adding Test-Suite: MainFactoryTest
+Adding Test-Suite: ILIAS\FileUpload\FileUploadImplTest
+Adding Test-Suite: ILIAS\FileUpload\ScalarTypeCheckAwareTest
+Adding Test-Suite: ValidationFactoryTest
+Adding Test-Suite: ILIAS\DI\HTTPServicesTest
+Adding Test-Suite: ILIAS\DI\DIContainerTest
+Adding Test-Suite: ILIAS\Filesystem\Stream\StreamTest
+Adding Test-Suite: ILIAS\Filesystem\Util\LegacyPathHelperTest
+Adding Test-Suite: SplitStringTest
+Adding Test-Suite: AddLabelTest
+Adding Test-Suite: TransformationsCustomTest
+Adding Test-Suite: BackgroundTasks\Implementation\BasicTaskManagerTest
+Adding Test-Suite: ILIAS\HTTP\Cookies\CookieWrapperTest
+Adding Test-Suite: ILIAS\HTTP\Cookies\CookieJarWrapperTest
+Adding Test-Suite: CrawlerTest
+Adding Test-Suite: UIComponentsTest
+Adding Test-Suite: FactoriesCrawlerTest
+Adding Test-Suite: ComponentRendererFSLoaderTest
+Adding Test-Suite: ComponentRendererLoaderCachingWrapperTest
+Adding Test-Suite: DefaultRendererFactoryTest
+Adding Test-Suite: AbstractRendererTest
+Adding Test-Suite: ComponentRendererLoaderHelperTest
+Adding Test-Suite: ComponentRendererLoaderResourceRegistryWrapperTest
+Adding Test-Suite: DefaultRendererTest
+Adding Test-Suite: ComponentHelperTest
+Adding Test-Suite: JavaScriptBindableTest
+Adding Test-Suite: ILIAS_UI_Component_TriggererTest
+Adding Test-Suite: ILIAS\FileUpload\Processor\FilenameOverridePreProcessorTest
+Adding Test-Suite: ILIAS\FileUpload\Processor\WhitelistMimeTypePreProcessorTest
+Adding Test-Suite: ILIAS\FileUpload\Processor\PreProcessorManagerImplTest
+Adding Test-Suite: ILIAS\FileUpload\Processor\BlacklistExtensionPreProcessorTest
+Adding Test-Suite: ILIAS\FileUpload\Processor\WhitelistExtensionPreProcessorTest
+Adding Test-Suite: ILIAS\FileUpload\Processor\BlacklistMimeTypePreProcessorTest
+Adding Test-Suite: ILIAS\FileUpload\Processor\BlacklistFileHeaderPreProcessorTest
+Adding Test-Suite: ILIAS\FileUpload\Processor\VirusScannerPreProcessorTest
+Adding Test-Suite: ILIAS\FileUpload\Processor\WhitelistFileHeaderPreProcessorTest
+Adding Test-Suite: ILIAS\FileUpload\Collection\EntryLockingStringMapTest
+Adding Test-Suite: GreatherThanConstraintTest
+Adding Test-Suite: ValidationConstraintsCustomTest
+Adding Test-Suite: HasMaxLengthConstraintTest
+Adding Test-Suite: SequentialTest
+Adding Test-Suite: LogicalOrTest
+Adding Test-Suite: IsNumericConstraintTest
+Adding Test-Suite: IsStringConstraintTest
+Adding Test-Suite: NotTest
+Adding Test-Suite: IsNullConstraintTest
+Adding Test-Suite: HasMinLengthConstraintTest
+Adding Test-Suite: LessThanConstraintTest
+Adding Test-Suite: ParallelTest
+Adding Test-Suite: PasswordContraintsTest
+Adding Test-Suite: IsArrayOfConstraintTest
+Adding Test-Suite: IsIntConstraintTest
+Adding Test-Suite: ILIAS\GlobalScreen\Scope\MainMenu\Factory\FactoryImplTest
+Adding Test-Suite: ILIAS\GlobalScreen\Scope\MainMenu\Factory\IdentificationFactoryTest
+Adding Test-Suite: ILIAS\GlobalScreen\Scope\MainMenu\Factory\IdentificationTest
+Adding Test-Suite: Filesystem\Provider\FlySystem\FlySystemFileStreamAccessTest
+Adding Test-Suite: ILIAS\Filesystem\Provider\FlySystem\FlySystemDirectoryAccessTest
+Adding Test-Suite: ILIAS\Filesystem\Provider\FlySystem\FlySystemFileAccessTest
+Adding Test-Suite: ILIAS\Filesystem\Provider\FlySystem\FlySystemLocalFilesystemFactoryTest
+Adding Test-Suite: BackgroundTasks\Implementation\Observer\BasicObserverTest
+Adding Test-Suite: BackgroundTasks\Implementation\Tasks\BasicTaskFactoryTest
+Adding Test-Suite: ComponentEntryRulesTest
+Adding Test-Suite: ComponentEntryDescriptionTest
+Adding Test-Suite: PanelListingTest
+Adding Test-Suite: PanelFactoryTest
+Adding Test-Suite: PanelTest
+Adding Test-Suite: ViewControlTest
+Adding Test-Suite: PaginationTest
+Adding Test-Suite: SortationTest
+Adding Test-Suite: DividerTest
+Adding Test-Suite: CounterFactoryTest
+Adding Test-Suite: CounterTest
+Adding Test-Suite: RoundTripTest
+Adding Test-Suite: ModalFactoryTest
+Adding Test-Suite: InterruptiveTest
+Adding Test-Suite: LightboxTest
+Adding Test-Suite: ModalTest
+Adding Test-Suite: GlyphFactoryTest
+Adding Test-Suite: GlyphTest
+Adding Test-Suite: LinkTest
+Adding Test-Suite: ItemGroupTest
+Adding Test-Suite: ItemTest
+Adding Test-Suite: LegacyTest
+Adding Test-Suite: ButtonMonthTest
+Adding Test-Suite: ButtonFactoryTest
+Adding Test-Suite: BulkyButtonTest
+Adding Test-Suite: ToggleButtonTest
+Adding Test-Suite: ButtonTest
+Adding Test-Suite: PopoverTest
+Adding Test-Suite: MessageBoxTest
+Adding Test-Suite: ListingTest
+Adding Test-Suite: ListingFactoryTest
+Adding Test-Suite: ChartScaleBarTest
+Adding Test-Suite: DeckTest
+Adding Test-Suite: InputFactoryTest
+Adding Test-Suite: ImageFactoryTest
+Adding Test-Suite: ImageTest
+Adding Test-Suite: DropdownTest
+Adding Test-Suite: RepositoryObjectTest
+Adding Test-Suite: CardTest
+Adding Test-Suite: IconTest
+Adding Test-Suite: TableFactoryTest
+Adding Test-Suite: PresentationTest
+Adding Test-Suite: BreadcrumbsTest
+Adding Test-Suite: WorkflowStepTest
+Adding Test-Suite: WorkflowFactoryTest
+Adding Test-Suite: LinearWorkflowTest
+Adding Test-Suite: ChartProgressMeterTest
+Adding Test-Suite: DropzoneRendererTest
+Adding Test-Suite: NumericInputTest
+Adding Test-Suite: InputTest
+Adding Test-Suite: CheckboxInputTest
+Adding Test-Suite: FieldFactoryTest
+Adding Test-Suite: SelectInputTest
+Adding Test-Suite: TextInputTest
+Adding Test-Suite: RadioInputTest
+Adding Test-Suite: TextareaTest
+Adding Test-Suite: PasswordInputTest
+Adding Test-Suite: GroupInputTest
+Adding Test-Suite: MultiSelectInputTest
+Adding Test-Suite: TagInputTest
+Adding Test-Suite: FormTest
+Adding Test-Suite: FormFactoryTest
+Adding Test-Suite: PostDataFromServerRequestTest
+Adding Test-Suite: StandardFormTest
+
+Removing tests requiring an installed ILIAS.
+PHPUnit 5.7.27 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 7.2.16-1+ubuntu16.04.1+deb.sury.org+1
+Configuration: /home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/PHPUnit/config/PhpUnitConfig.xml
+
+.............................................................   61 / 3644 (  1%)
+.............................................................  122 / 3644 (  3%)
+.............................................................  183 / 3644 (  5%)
+.............................EEEEEEEE........................  244 / 3644 (  6%)
+.............................................................  305 / 3644 (  8%)
+.............................................................  366 / 3644 ( 10%)
+................................................III.........S  427 / 3644 ( 11%)
+.............................................................  488 / 3644 ( 13%)
+.............................................................  549 / 3644 ( 15%)
+.............................................................  610 / 3644 ( 16%)
+.............................................................  671 / 3644 ( 18%)
+.............................................................  732 / 3644 ( 20%)
+.............................................................  793 / 3644 ( 21%)
+.............................................................  854 / 3644 ( 23%)
+.............................................................  915 / 3644 ( 25%)
+.............................................................  976 / 3644 ( 26%)
+.............................................II.............. 1037 / 3644 ( 28%)
+.......................................................I..... 1098 / 3644 ( 30%)
+............................................................. 1159 / 3644 ( 31%)
+...........I..I.I.III........................................ 1220 / 3644 ( 33%)
+.................................I........................... 1281 / 3644 ( 35%)
+............................................................. 1342 / 3644 ( 36%)
+............................................................. 1403 / 3644 ( 38%)
+............................................................. 1464 / 3644 ( 40%)
+............................................................. 1525 / 3644 ( 41%)
+............................................................. 1586 / 3644 ( 43%)
+............................................................. 1647 / 3644 ( 45%)
+............................................................. 1708 / 3644 ( 46%)
+............................................................. 1769 / 3644 ( 48%)
+............................................................. 1830 / 3644 ( 50%)
+............................................................. 1891 / 3644 ( 51%)
+............................................................. 1952 / 3644 ( 53%)
+............................................................. 2013 / 3644 ( 55%)
+............................................................. 2074 / 3644 ( 56%)
+............................................................. 2135 / 3644 ( 58%)
+............................................................. 2196 / 3644 ( 60%)
+............................................................. 2257 / 3644 ( 61%)
+............................................................. 2318 / 3644 ( 63%)
+............................................................. 2379 / 3644 ( 65%)
+............................................................. 2440 / 3644 ( 66%)
+............................................................. 2501 / 3644 ( 68%)
+............................................................. 2562 / 3644 ( 70%)
+............................................................. 2623 / 3644 ( 71%)
+............................................................. 2684 / 3644 ( 73%)
+............................................................. 2745 / 3644 ( 75%)
+............................................................. 2806 / 3644 ( 77%)
+............................................................. 2867 / 3644 ( 78%)
+............................................................. 2928 / 3644 ( 80%)
+............................................................. 2989 / 3644 ( 82%)
+............................................................. 3050 / 3644 ( 83%)
+............................................................. 3111 / 3644 ( 85%)
+............................................................. 3172 / 3644 ( 87%)
+............................................................. 3233 / 3644 ( 88%)
+............................................................. 3294 / 3644 ( 90%)
+............................................................. 3355 / 3644 ( 92%)
+............................................................. 3416 / 3644 ( 93%)
+............................................................. 3477 / 3644 ( 95%)
+............................................................. 3538 / 3644 ( 97%)
+............................................................. 3599 / 3644 ( 98%)
+.............................................                 3644 / 3644 (100%)
+
+Time: 21.22 seconds, Memory: 112.50MB
+
+There were 8 errors:
+
+1) ilMailAddressParserTest::testBuiltInAddressParser with data set #0 ('phpunit@ilias,phpunit', array(ilMailAddress Object (...), ilMailAddress Object (...)))
+Error: Call to undefined function imap_rfc822_parse_adrlist()
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/classes/Address/Parser/class.ilMailImapRfc822AddressParser.php:15
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/classes/Address/Parser/class.ilBaseMailRfc822AddressParser.php:56
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/test/ilMailAddressParserTest.php:62
+
+2) ilMailAddressParserTest::testBuiltInAddressParser with data set #1 ('phpunit@ilias.de', array(ilMailAddress Object (...)))
+Error: Call to undefined function imap_rfc822_parse_adrlist()
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/classes/Address/Parser/class.ilMailImapRfc822AddressParser.php:15
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/classes/Address/Parser/class.ilBaseMailRfc822AddressParser.php:56
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/test/ilMailAddressParserTest.php:62
+
+3) ilMailAddressParserTest::testBuiltInAddressParser with data set #2 ('#il_ml_4711', array(ilMailAddress Object (...)))
+Error: Call to undefined function imap_rfc822_parse_adrlist()
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/classes/Address/Parser/class.ilMailImapRfc822AddressParser.php:15
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/classes/Address/Parser/class.ilBaseMailRfc822AddressParser.php:56
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/test/ilMailAddressParserTest.php:62
+
+4) ilMailAddressParserTest::testBuiltInAddressParser with data set #3 ('#il_role_1000', array(ilMailAddress Object (...)))
+Error: Call to undefined function imap_rfc822_parse_adrlist()
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/classes/Address/Parser/class.ilMailImapRfc822AddressParser.php:15
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/classes/Address/Parser/class.ilBaseMailRfc822AddressParser.php:56
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/test/ilMailAddressParserTest.php:62
+
+5) ilMailAddressParserTest::testBuiltInAddressParser with data set #4 ('#il_crs_member_998', array(ilMailAddress Object (...)))
+Error: Call to undefined function imap_rfc822_parse_adrlist()
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/classes/Address/Parser/class.ilMailImapRfc822AddressParser.php:15
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/classes/Address/Parser/class.ilBaseMailRfc822AddressParser.php:56
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/test/ilMailAddressParserTest.php:62
+
+6) ilMailAddressParserTest::testBuiltInAddressParser with data set #5 ('#member@[French Course]', array(ilMailAddress Object (...)))
+Error: Call to undefined function imap_rfc822_parse_adrlist()
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/classes/Address/Parser/class.ilMailImapRfc822AddressParser.php:15
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/classes/Address/Parser/class.ilBaseMailRfc822AddressParser.php:56
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/test/ilMailAddressParserTest.php:62
+
+7) ilMailAddressParserTest::testBuiltInAddressParser with data set #6 ('Course Administrator <#admin@...urse]>', array(ilMailAddress Object (...)))
+Error: Call to undefined function imap_rfc822_parse_adrlist()
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/classes/Address/Parser/class.ilMailImapRfc822AddressParser.php:15
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/classes/Address/Parser/class.ilBaseMailRfc822AddressParser.php:56
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/test/ilMailAddressParserTest.php:62
+
+8) ilMailAddressParserTest::testBuiltInAddressParser with data set #7 ('Course Administrator <#il_crs..._2581>', array(ilMailAddress Object (...)))
+Error: Call to undefined function imap_rfc822_parse_adrlist()
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/classes/Address/Parser/class.ilMailImapRfc822AddressParser.php:15
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/classes/Address/Parser/class.ilBaseMailRfc822AddressParser.php:56
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/Mail/test/ilMailAddressParserTest.php:62
+
+--
+
+There were 13 incomplete tests:
+
+1) test_007_IntermediateCatchEvent::test_WorkflowWithSimpleIntermediateMessageEventShouldOutputAccordingly
+$ilDB throws notices during test.
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/WorkflowEngine/test/parser/007_IntermediateCatchEvent/class.test_007_IntermediateCatchEvent.php:46
+
+2) test_007_IntermediateCatchEvent::test_WorkflowWithSimpleIntermediateSignalEventShouldOutputAccordingly
+$ilDB throws notices during test.
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/WorkflowEngine/test/parser/007_IntermediateCatchEvent/class.test_007_IntermediateCatchEvent.php:146
+
+3) test_007_IntermediateCatchEvent::test_WorkflowWithSimpleIntermediateTimerEventShouldOutputAccordingly
+$ilDB throws notices during test.
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/WorkflowEngine/test/parser/007_IntermediateCatchEvent/class.test_007_IntermediateCatchEvent.php:246
+
+4) assQuestionTest::test_instantiateObject_shouldReturnInstance
+Abstract class - needs fixture class for tests.
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Modules/TestQuestionPool/test/assQuestionTest.php:48
+
+5) assQuestionGUITest::test_instantiateObject_shouldReturnInstance
+Abstract class - needs fixture class for tests.
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Modules/TestQuestionPool/test/assQuestionGUITest.php:48
+
+6) assImagemapQuestionGUITest::test_instantiateObject_shouldReturnInstance
+ilSetting / ilDBInterface -> more mocks needed.
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Modules/TestQuestionPool/test/assImagemapQuestionGUITest.php:48
+
+7) ilAnswerWizardInputGUITest::test_instantiateObject_shouldReturnInstance
+Needs mocks.
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Modules/TestQuestionPool/test/ilAnswerWizardInputGUITest.php:41
+
+8) ilAssQuestionHintGUITest::test_instantiateObject_shouldReturnInstance
+Needs question mock.
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Modules/TestQuestionPool/test/ilAssQuestionHintGUITest.php:31
+
+9) ilAssQuestionHintRequestGUITest::test_instantiateObject_shouldReturnInstance
+Needs question mock.
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Modules/TestQuestionPool/test/ilAssQuestionHintRequestGUITest.php:31
+
+10) ilAssQuestionHintsGUITest::test_instantiateObject_shouldReturnInstance
+Needs mock.
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Modules/TestQuestionPool/test/ilAssQuestionHintsGUITest.php:31
+
+11) ilAssQuestionHintsOrderingClipboardTest::test_instantiateObject_shouldReturnInstance
+Needs mock.
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Modules/TestQuestionPool/test/ilAssQuestionHintsOrderingClipboardTest.php:31
+
+12) ilAssQuestionHintsTableGUITest::test_instantiateObject_shouldReturnInstance
+Needs mock.
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Modules/TestQuestionPool/test/ilAssQuestionHintsTableGUITest.php:31
+
+13) assAnswerTrueFalseTest::test_setFalseGetCorrectness_shouldReturnFalse
+Bug detected, fix not applied yet due to poor coverage.
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Modules/TestQuestionPool/test/assAnswerTrueFalseTest.php:90
+
+--
+
+There was 1 skipped test:
+
+1) test_013_DataOutput::test_WorkflowWithSimpleEndEventShouldOutputAccordingly
+
+/home/gvollbach/local_public_html/projekte/1_bugfixing/trunk_uninstalled/ILIAS/Services/WorkflowEngine/test/parser/013_DataOutput/class.test_013_DataOutput.php:45
+
+ERRORS!
+Tests: 3644, Assertions: 8284, Errors: 8, Skipped: 1, Incomplete: 13.
