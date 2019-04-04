@@ -1,31 +1,29 @@
 language: php
 stages:
-  - unittests
-  - name: dicto.sh
-    if: TRAVIS_EVENT_TYPE = cron
+- unittests
+- name: dicto.sh
+  if: TRAVIS_EVENT_TYPE = cron
 jobs:
   include:
-    - stage: unittests
-      php:
-        - 7.0
-      script: 
-         - |
-            if [ "$TRAVIS_EVENT_TYPE" != "pull_request" ]; then
-              echo "TRAVIS_BRANCH=$TRAVIS_BRANCH"
-              echo "TRAVIS_EVENT_TYPE=$TRAVIS_EVENT_TYPE"
-              echo "TRAVIS_COMMIT=$TRAVIS_COMMIT"
-              ./run_tests.sh
-            fi
-
-    - stage: dicto.sh
-      script: 
-      - |
-        if [ "$TRAVIS_EVENT_TYPE" != "pull_request"  && "$TRAVIS_EVENT_TYPE" == "cron" ]; then
-          echo "$TRAVIS_EVENT_TYPE" . " me, don't push me!"
-          ./run_dicto.sh
-        fi
+  - stage: unittests
+    php:
+    - 7.0
+    script:
+    - |
+      if [ "$TRAVIS_EVENT_TYPE" != "pull_request" ]; then
+        echo "TRAVIS_BRANCH=$TRAVIS_BRANCH"
+        echo "TRAVIS_EVENT_TYPE=$TRAVIS_EVENT_TYPE"
+        echo "TRAVIS_COMMIT=$TRAVIS_COMMIT"
+        ./run_tests.sh
+      fi
+  - stage: dicto.sh
+    script:
+    - |
+      if [ "$TRAVIS_EVENT_TYPE" != "pull_request"  && "$TRAVIS_EVENT_TYPE" == "cron" ]; then
+        echo "$TRAVIS_EVENT_TYPE" . " me, don't push me!"
+        ./run_dicto.sh
+      fi
 install:
-    - cd .. && git clone https://github.com/vollnixx/TravisResults.git && cd TravisWorkflow2
-env:
-  global:
-    secure: Uym7PMLwhkWQn7VmB2bJUvClfzs8pPyJofA2fK+OHbefxmTdynteIAx11r6fFrL7bORfVpxIbfJOU2tGdNo4IesYaHG0g1M1ZS9Rt/Vxp9TbiUe0JrpP7ukKEBH88umswNeYydR6G8vT63T3ALRyG+S+rG4XgDvls4nL6tFMEX5rL6RRsH5E1gnaJsR2drR5x5sHw2/8fZ4Lg8PjDPWwsF1mhlTrco1N90Vcl9wHk6xD7WJxStIHIjxVRdQPrLfDfM2OLwGI6fQjuZT3Y0lrnivmiDbJB9WX4sFypbLiMBEN3Jw9Su1MSMhNPMqzpTbC/9g8d3Hjb9P55FK38d6k/MuxfRO6ElpyWyPSFfCocyc9+bVfXErR0mLTzU7fwKv/zVC511vLagARWpp1U/8BVtDKof45Xbw9RCKDC35D4fOygapu2qIK6nA6Ge3YzUjEe6MWyUFr1QdcQHQkv4P4W4hhhp4hMQdDelEGuNuqnm3PoD+8fZGG8w0PgiHRwEAAz0YBTaicXX7rpEvrVEvOd9BJADYNW+q7GezYGOed2qE2XhbmFPn0DccFOdi1mgRYGsZPpFKoQX1UsggtXu38hu1GfAjRZH1ap9h7tn6zNj8cWRUURJqM2gcLBwl5h1LkwhI+IXXelbfk56k9da7MIpvUTmBTfTCfIKe8jlZGaRY=
+- cd .. && git clone https://github.com/vollnixx/TravisResults.git && cd TravisWorkflow2
+dd:
+  secure: sKIDILrLyPnDAALY3w2pO4GUeulqTQr5e6AYo4XE7RUu4uQ3g+ZgsJaE2vldU8GD+bgLHQGsE+Q3uu00V3y8RJ4ykKcVi2VOv2i0YDvXUyR6zMbun4aZYuL1lZ4xd/5IJ0DxZp9vVHEBE6lJLb1gPX+DWKlrIbKkRLVHuXQvYrQZhoaXwthy47Y+XG3ub8iCbsvF7nhPNPoB6oCSaXv3m79gwP2GkLmre84ZXd25Zy6nPllZahvXUYi4B4UrFnMpQqjH5oiJs2q7A6vVD9l02eckoGm5MbrodInJKqJZCGmjODNgm8ZIgt9j5gP6GE5OMtcMeEM6nxBiyMqmji2OGtcSihnOZJ3Twjfm5OYyphheJDtBEjmrgvIoE1ANoxaUndnN9QNIZ7gx5dxEdE3S1f7U2YOV52xOWGELCYDHBMDLP/1aQUm+Uj3VX1glmac03zQ4aBbReREnTEpkspt4nyCNvV4pKgUA6qeVXjfYVX21N/e51Eo7CmroiN6N+RtoMY6iMTZnQbl8ATTLl4WAuPlv0UbK+ub6Io8Z2/H9if322YQw95q/odxMcu262TFHrhYt7KAqWj8cfLrqz7dhZzlzTboMdBvGocUPWZXfPPOIBfSpXY6QrLPybRt2eHxvDcBWhUEbgfbI90X3c4qXjfJHmTQFMZ9aCnJZHLIjpdk=
