@@ -3,13 +3,14 @@
 # Produce data
 #libs/composer/vendor/phpunit/phpunit/phpunit --bootstrap ./libs/composer/vendor/autoload.php --configuration ./Services/PHPUnit/config/PhpUnitConfig.xml --exclude-group needsInstalledILIAS --verbose $@ | tee /tmp/phpunit_results
 
+cp phpunit_results /tmp/phpunit_results
+
 # Init paths
 RESULT=`tail -n1 < /tmp/phpunit_results`
 PHPUNIT_PATH="/tmp/phpunit_latest.csv"
 PHPUNIT_PATH_TMP="/tmp/phpunit_changed.csv"
 DICTO_PATH="/tmp/dicto_latest.csv"
 
-cp phpunit_results /tmp/phpunit_results
 # Collect data
 SPLIT_RESULT=(`echo $RESULT | tr ':' ' '`)
 PHP_VERSION=`php -r "echo PHP_MAJOR_VERSION . '_' . PHP_MINOR_VERSION;"`
