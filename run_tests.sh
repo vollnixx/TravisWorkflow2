@@ -13,9 +13,13 @@ DICTO_PATH="/tmp/dicto_latest.csv"
 
 # Collect data
 SPLIT_RESULT=(`echo $RESULT | tr ':' ' '`)
-PHP_VERSION=`php -r "echo PHP_MAJOR_VERSION . '_' . PHP_MINOR_VERSION;"`
-ILIAS_VERSION=`php -r "require_once 'include/inc.ilias_version.php'; echo ILIAS_VERSION_NUMERIC;"`
-ILIAS_VERSION=`echo "$ILIAS_VERSION" | tr . _`
+if [ -e "include/inc.ilias_version.php" ]
+	then
+		PHP_VERSION=`php -r "echo PHP_MAJOR_VERSION . '_' . PHP_MINOR_VERSION;"`
+		ILIAS_VERSION=`php -r "require_once 'include/inc.ilias_version.php'; echo ILIAS_VERSION_NUMERIC;"`
+		ILIAS_VERSION=`echo "$ILIAS_VERSION" | tr . _`
+fi
+
 JOB_ID=`echo $TRAVIS_JOB_NUMBER`
 JOB_URL=`echo $TRAVIS_JOB_WEB_URL`
 FAILURE=false
