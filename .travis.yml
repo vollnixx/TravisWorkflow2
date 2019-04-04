@@ -21,8 +21,10 @@ jobs:
     - |
       if [ "$TRAVIS_EVENT_TYPE" != "pull_request"  && "$TRAVIS_EVENT_TYPE" == "cron" ]; then
         echo "$TRAVIS_EVENT_TYPE" . " me, don't push me!"
-        ./run_dicto.sh
+       
       fi
+install:
+- cd .. && git clone https://github.com/vollnixx/TravisResults.git && cd TravisWorkflow2
 env:
   global:
     secure: JgqpvOmXo7+wBJ+Uwsgr+sG2ZsFMCjIU3ZZhhchW49wx+ScY3cGjxWxGwMSviqI02utnpDvH7ulP215/TTaL35njx8sks9SonzNJ7kbsZYNGjI8PGiGc9OaGZEG5/xgbhEH5iiLhr+x4+uDbM5nZI/8y+8ORaDBOS7qnCT70uspQMVfVOtnHQ/NI4DlJy29iOwI0P/19QiJQrhVBKoQqWFqXoBZAcpqtheTyRFHnzIN96MlagEX2OiOqhFkXQSEpPuUg+oBsE5co0pLYd3e0Ot4dTM9M02t9WDyzgzs76qmRAZHVzNbUcxkXzf0itQQYPnO7IjpPzu1y5p7rA1hQESOQ4Ye4j+g+K4p8iAWiRe2mdsIsZSD++db+tKQeIjQICRlMpaRaNaUgzjycuiw9b5w0HYAMbMQtKWfIR1d7LtwTRZAZOR29BEnaGUGXwf4O/MHoD0rCi7ArGrieiop1bNc4Naj7ZB6NmlCaNepd6gMzf/5/J9wOfoeT0ISy6oCwfezSTTjzLgfhwj9uCdUomEJLnmhBAgYzbSqarxrLG/KZyFXQ4CMRbubR5Llsw4B5iHAmLUfyxaB2rINPuwHkVsYRWVQUZV7KYuxkEjtvHGGwHe+HpvGYGIwxRd8GmJCf71oCAkIZuMdjhXea3ERah0M6XkQYD8vohgaDV/e977I=
