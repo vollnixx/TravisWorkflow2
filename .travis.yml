@@ -14,7 +14,7 @@ jobs:
         echo "TRAVIS_BRANCH=$TRAVIS_BRANCH"
         echo "TRAVIS_EVENT_TYPE=$TRAVIS_EVENT_TYPE"
         echo "TRAVIS_COMMIT=$TRAVIS_COMMIT"
-        echo "$VOLLNIXX_VAR"
+        echo "${VOLLNIXX_VAR}"
         ./run_tests.sh
       fi
   - stage: dicto.sh
