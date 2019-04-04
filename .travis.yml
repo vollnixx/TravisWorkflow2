@@ -21,10 +21,10 @@ jobs:
     - |
       if [ "$TRAVIS_EVENT_TYPE" != "pull_request"  && "$TRAVIS_EVENT_TYPE" == "cron" ]; then
         echo "$TRAVIS_EVENT_TYPE" . " me, don't push me!"
-       
+       ./run_dicto.sh
       fi
 install:
 - cd .. && git clone https://github.com/vollnixx/TravisResults.git && cd TravisWorkflow2
 env:
   global:
-    secure: JgqpvOmXo7+wBJ+Uwsgr+sG2ZsFMCjIU3ZZhhchW49wx+ScY3cGjxWxGwMSviqI02utnpDvH7ulP215/TTaL35njx8sks9SonzNJ7kbsZYNGjI8PGiGc9OaGZEG5/xgbhEH5iiLhr+x4+uDbM5nZI/8y+8ORaDBOS7qnCT70uspQMVfVOtnHQ/NI4DlJy29iOwI0P/19QiJQrhVBKoQqWFqXoBZAcpqtheTyRFHnzIN96MlagEX2OiOqhFkXQSEpPuUg+oBsE5co0pLYd3e0Ot4dTM9M02t9WDyzgzs76qmRAZHVzNbUcxkXzf0itQQYPnO7IjpPzu1y5p7rA1hQESOQ4Ye4j+g+K4p8iAWiRe2mdsIsZSD++db+tKQeIjQICRlMpaRaNaUgzjycuiw9b5w0HYAMbMQtKWfIR1d7LtwTRZAZOR29BEnaGUGXwf4O/MHoD0rCi7ArGrieiop1bNc4Naj7ZB6NmlCaNepd6gMzf/5/J9wOfoeT0ISy6oCwfezSTTjzLgfhwj9uCdUomEJLnmhBAgYzbSqarxrLG/KZyFXQ4CMRbubR5Llsw4B5iHAmLUfyxaB2rINPuwHkVsYRWVQUZV7KYuxkEjtvHGGwHe+HpvGYGIwxRd8GmJCf71oCAkIZuMdjhXea3ERah0M6XkQYD8vohgaDV/e977I=
+  - secure: ZfZBddKsAtpI9vSvZi8c7jRSeA+k2XM32R+exSl4zOJPJohbu/b2EGXMjekA34jRk4qFhltxMzIB16nqAGihgrlTsXKDw+vbUJ6X5rab2VN4z4E951h4+hO2qG6pNRVVywYUt/I/8X/DWLtPrd2lHXL3TUYPmLee11RsVelrel+JdmGIs7ny3Q7rfJg3fm6yUE40ZmN9B28YyBWjw6AaIZP2LJBsTRbcIHkhuAGImCdaDvbVYfLJgYrutoruY7vjNjwT1/fmt+oddD+yUhYN51OX7cA8kTt4XEOpU+4hJCkrzJB5WY0eoLWJV7jzTJMBW5EvlWVfgDzmrx1CU2WS0yCGgcRJE/WYaGI+hw0XUpTnJOsuPZkGzOLdo06/tiNbxRXR5+RI8uyVoW5WYuUIQjPDAgsFrot6YGrhkbiXb1lJE4J2gUy+NsgVtPV1Z5w4rDxnTSE205jRRlB0pnSGh9+b4itpyIcOcwjzCZIXPw8fogp67KWqFPTn4RqMOOF2pkbFgGUynU+o6qRePz+KfgboFbdYXyS68Xtq5yoA+AKFInd482SXLj7JnxE5sVf6bi0dcg2yh0FO6q1KW6IBym/CgpWtkh0hd9hUz5JACYAxXq0/puAgpsX69+CCOUW7rOFmCFvXrwc2f1VSn52zpdiqNU2JiJVsViYQXTL8Dhs=
