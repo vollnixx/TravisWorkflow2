@@ -14,7 +14,6 @@ jobs:
         echo "TRAVIS_BRANCH=$TRAVIS_BRANCH"
         echo "TRAVIS_EVENT_TYPE=$TRAVIS_EVENT_TYPE"
         echo "TRAVIS_COMMIT=$TRAVIS_COMMIT"
-        echo "${VOLLNIXX_VAR}"
         ./run_tests.sh
       fi
   - stage: dicto.sh
@@ -28,4 +27,4 @@ install:
 - cd .. && git clone https://github.com/vollnixx/TravisResults.git && cd TravisWorkflow2
 env:
   global:
-  - secure: NR/1J5l+03tGxuqK0146QCEvJpmlINf0b9/pwuPc4G/vkWZmQSoSWb5/x8/Fv6yRM0QHzqAD1f0NlD2JruojcXBeMkAnDrd3a2nTdc8bJ5ObHio0vgw2nl42+3PZ1pql9v1snO6C/nTgLfJV66vNLqcPMLX1FZS7Quz701mblFZJ8dyDY+ES8dqf9IQra6OBJysitLv8MTiMgsutVX7BfAPIKnd0H1rZHWFYCjfvQ57sFK0c95W9ZGiLD4S4AtMxjf2fugMK8NyKGT2NCEAhr6sthoIPHmLr5jHeKRbfNA4WVb0DHCV+0b5vDJx5Y3s/5Oe+DZ6yoBoQWnFuJJ4TWP78HtaybdcXAMmL6tlSZIcSxHNZ3TshOmBsq4fTSzQLE5EbSx/2zjJ62mPvdCj5wFpyNG67G4yRAfLjPFpiJY7bdQH7PEPlcsfitEWINadKwYnXPtEi1uan8LdCSv0f/DpHHUIyfOBHEESjzhhEGiYRrc9Pfs8faUI1khCktJZ7JClO6KwDanHPx1+IbfHsBbxXia6uFjsraZXRMKf7bvk5NB0rrJzU+8tQPbRBlBT/91u9bfLooMyWbUza7Ma0lAujPktDOpgvy/BhyQ4vRa6qCd6pVILJPCOYNeGbCij0Tm0O/67U+qB4YxBa501LpO1BHv+AI5gixA5dxlvvENA=
+  - secure: L51CUm/81fIR1yygzPLkNDyH03mIKe/uub+QwLHCvPZGdQrhhve3MKvUnh25wHNU9bU32LejJStHPOrN4oyCKPU1JBcDOQc4vJ3Nmg8dh7l87ckUBYTUvZfTYseeNgmZb1lg7yrCSxqggCwNaB85UuF1yOQFp/ioaUq5kWZXm8BQzN49piFgihCrqE8oCCHkKASaS1KffirrMyyj6WvuYhCt20olTn54esyKsam2GBsfS8BGK1u2zxfTVSvab+Q4n9VeABuIJfPZL0KObFLkj9qSAMzYjkc/ZkaggLl8nM8NhmGYIF5krAvnCHCF0DvP8a0EBi4ToKqCtaocMJJU7chInNnMXDmWCg5Nac2YBzAtBXWEEupSX+RuHXSyw3PKByDu6qmswMnhO545d7847K9V7gpaLKLuvb1zenHvCLuScpDYeZAgII0qDnuF5bkPriPxJREs0NJ/x+R0wqajJNabyqw0Yxd/zVFoTCYxUR4GF8SBI5Y3oM1u5ePZvGesFzLUqQ73afClgJ2LR5t5ksuFlut329h6MUKQfJvDj4r9kT0itjdL/UWmUwrIAwAxdDH8rJbwLXaAjOcAk6ZhdYCuT+M9PhcxyXayEqnz2FyhkpdIt9jGVVZy4KZVG/Wk48BPw0cf26vawSyWfkb+UnTKXd3OKZfCgcwSCFV4bzM=
