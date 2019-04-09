@@ -23,7 +23,7 @@ fi
 JOB_ID=`echo $TRAVIS_JOB_NUMBER`
 JOB_URL=`echo $TRAVIS_JOB_WEB_URL`
 FAILURE=false
-declare -A RESULTS=([Tests]=0 [Assertions]=0 [Errors]=0 [Warnings]=0 [Skipped]=0 [Incomplete]=0);
+declare -A RESULTS=([Tests]=0 [Assertions]=0 [Errors]=0 [Warnings]=0 [Skipped]=0 [Incomplete]=0 [Risky]=0);
 for TYPE in "${!RESULTS[@]}"; 
 	do 
 		for PHP_UNIT_RESULT in "${!SPLIT_RESULT[@]}"; 
@@ -43,9 +43,9 @@ fi
 # Clean lines
 grep -v "$ILIAS_VERSION.*php_$PHP_VERSION" $PHPUNIT_PATH > $PHPUNIT_PATH_TMP 
 # Write line
-echo "NEW_LINE: $JOB_URL,$JOB_ID,$ILIAS_VERSION,php_$PHP_VERSION,PHP $PHP_VERSION,${RESULTS[Warnings]},${RESULTS[Skipped]},${RESULTS[Incomplete]},${RESULTS[Tests]},${RESULTS[Errors]},$FAILURE";
+echo "NEW_LINE: $JOB_URL,$JOB_ID,$ILIAS_VERSION,php_$PHP_VERSION,PHP $PHP_VERSION,${RESULTS[Warnings]},${RESULTS[Skipped]},${RESULTS[Incomplete]},${RESULTS[Tests]},${RESULTS[Errors]},${RESULTS[Risky]},$FAILURE";
 
-echo "$JOB_URL,$JOB_ID,$ILIAS_VERSION,php_$PHP_VERSION,PHP $PHP_VERSION,${RESULTS[Warnings]},${RESULTS[Skipped]},${RESULTS[Incomplete]},${RESULTS[Tests]},${RESULTS[Errors]},$FAILURE" >> "$PHPUNIT_PATH_TMP";
+echo "$JOB_URL,$JOB_ID,$ILIAS_VERSION,php_$PHP_VERSION,PHP $PHP_VERSION,${RESULTS[Warnings]},${RESULTS[Skipped]},${RESULTS[Incomplete]},${RESULTS[Tests]},${RESULTS[Errors]},${RESULTS[Risky]},$FAILURE" >> "$PHPUNIT_PATH_TMP";
 if [ -e "$PHPUNIT_PATH_TMP" ]
 	then
 		mv "$PHPUNIT_PATH_TMP" "$PHPUNIT_PATH"
