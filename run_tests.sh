@@ -41,8 +41,10 @@ if [ -e "$PHPUNIT_RESULTS_PATH" ]
 			then
 				FAILURE=true
 		fi
+
 		# Clean lines
 		grep -v "$ILIAS_VERSION.*php_$PHP_VERSION" $PHPUNIT_PATH > $PHPUNIT_PATH_TMP 
+
 		# Write line
 		echo "NEW_LINE: $JOB_URL,$JOB_ID,$ILIAS_VERSION,php_$PHP_VERSION,PHP $PHP_VERSION,${RESULTS[Warnings]},${RESULTS[Skipped]},${RESULTS[Incomplete]},${RESULTS[Tests]},${RESULTS[Errors]},${RESULTS[Risky]},$FAILURE";
 
@@ -50,8 +52,9 @@ if [ -e "$PHPUNIT_RESULTS_PATH" ]
 		if [ -e "$PHPUNIT_PATH_TMP" ]
 			then
 				mv "$PHPUNIT_PATH_TMP" "$PHPUNIT_PATH"
-				#rm /tmp/phpunit_results
+				rm "$PHPUNIT_RESULTS_PATH"
 		fi
+
 		# Result handling
 		TMP_DIRECTORY="/tmp/TravisResults"
 		if [ -d "$TMP_DIRECTORY" ]; then
@@ -59,10 +62,11 @@ if [ -e "$PHPUNIT_RESULTS_PATH" ]
 			rm -rf "$TMP_DIRECTORY"
 			echo "removing old tmp dir done."
 		fi
+
+		#Switch directory
 		cd /tmp && git clone https://github.com/vollnixx/TravisResults
-		rm "$PHPUNIT_RESULTS_PATH"
 		cd "$TMP_DIRECTORY" && ./run.sh
 else
 	echo "No result file found, stopping!"
-	exit 5
+	exit 99
 fi
