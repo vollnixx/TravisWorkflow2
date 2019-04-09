@@ -1,24 +1,25 @@
 #!/bin/bash
 
-function comment() {
+PRE="\t*** "
+
+function printLn() {
 	echo -e "$PRE $1"
 }
 
-PRE="\t*** "
-
-comment "Initialize paths variables"
+printLn "Initialize paths variables"
 
 PHPUNIT_PATH="/tmp/phpunit_latest.csv"
 PHPUNIT_PATH_TMP="/tmp/phpunit_changed.csv"
 PHPUNIT_RESULTS_PATH="/tmp/phpunit_results"
 DICTO_PATH="/tmp/dicto_latest.csv"
 TRAVIS_RESULTS_DIRECTORY="/tmp/TravisResults"
+DATE=`date '+%Y-%m-%d-%H:%M:%S'`
 
 libs/composer/vendor/phpunit/phpunit/phpunit --bootstrap ./libs/composer/vendor/autoload.php --configuration ./Services/PHPUnit/config/PhpUnitConfig.xml --exclude-group needsInstalledILIAS --verbose $@ | tee "$PHPUNIT_RESULTS_PATH"
 
 if [ -e "$PHPUNIT_RESULTS_PATH" ]
 	then
-		comment "Collecting data."
+		printLn "Collecting data."
 		RESULT=`tail -n1 < "$PHPUNIT_RESULTS_PATH"`
 		SPLIT_RESULT=(`echo $RESULT | tr ':' ' '`)
 		if [ -e "include/inc.ilias_version.php" ]
@@ -49,11 +50,11 @@ if [ -e "$PHPUNIT_RESULTS_PATH" ]
 				FAILURE=true
 		fi
 
-		comment "Removing old line PHP version $PHP_VERSION and ILIAS version $ILIAS_VERSION"
+		printLn "Removing old line PHP version $PHP_VERSION and ILIAS version $ILIAS_VERSION"
 		grep -v "$ILIAS_VERSION.*php_$PHP_VERSION" $PHPUNIT_PATH > $PHPUNIT_PATH_TMP 
 
-		NEW_LINE="$JOB_URL,$JOB_ID,$ILIAS_VERSION,php_$PHP_VERSION,PHP $PHP_VERSION,${RESULTS[Warnings]},${RESULTS[Skipped]},${RESULTS[Incomplete]},${RESULTS[Tests]},${RESULTS[Errors]},${RESULTS[Risky]},$FAILURE";
-		comment "Writing line: $NEW_LINE"
+		NEW_LINE="$JOB_URL,$JOB_ID,$ILIAS_VERSION,php_$PHP_VERSION,PHP $PHP_VERSION,${RESULTS[Warnings]},${RESULTS[Skipped]},${RESULTS[Incomplete]},${RESULTS[Tests]},${RESULTS[Errors]},${RESULTS[Risky]},$FAILURE,$DATE";
+		printLn "Writing line: $NEW_LINE"
 		echo "$NEW_LINE" >> "$PHPUNIT_PATH_TMP";
 
 		if [ -e "$PHPUNIT_PATH_TMP" ]
@@ -62,16 +63,16 @@ if [ -e "$PHPUNIT_RESULTS_PATH" ]
 				rm "$PHPUNIT_RESULTS_PATH"
 		fi
 
-		comment "Handling result."
+		printLn "Handling result."
 
 		if [ -d "$TRAVIS_RESULTS_DIRECTORY" ]; then
-			comment "Starting to remove old temp directory"
+			printLn "Starting to remove old temp directory"
 			rm -rf "$TRAVIS_RESULTS_DIRECTORY"
 		fi
-		comment "Switching directory and clone results repository."
+		printLn "Switching directory and clone results repository."
 		cd /tmp && git clone https://github.com/vollnixx/TravisResults
 		cd "$TRAVIS_RESULTS_DIRECTORY" && ./run.sh
 else
-	comment "No result file found, stopping!"
+	printLn "No result file found, stopping!"
 	exit 99
 fi
