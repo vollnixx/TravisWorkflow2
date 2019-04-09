@@ -1,7 +1,13 @@
 #!/bin/bash
+
+function comment() {
+	echo -e "$PRE $1"
+}
+
 PRE="\t*** "
 
-# Init paths
+comment "Initialize paths variables"
+
 PHPUNIT_PATH="/tmp/phpunit_latest.csv"
 PHPUNIT_PATH_TMP="/tmp/phpunit_changed.csv"
 PHPUNIT_RESULTS_PATH="/tmp/phpunit_results"
@@ -12,7 +18,7 @@ libs/composer/vendor/phpunit/phpunit/phpunit --bootstrap ./libs/composer/vendor/
 
 if [ -e "$PHPUNIT_RESULTS_PATH" ]
 	then
-		echo -e "$PRE Collecting data..."
+		comment "Collecting data."
 		RESULT=`tail -n1 < "$PHPUNIT_RESULTS_PATH"`
 		SPLIT_RESULT=(`echo $RESULT | tr ':' ' '`)
 		if [ -e "include/inc.ilias_version.php" ]
@@ -43,13 +49,12 @@ if [ -e "$PHPUNIT_RESULTS_PATH" ]
 				FAILURE=true
 		fi
 
-		echo -e "$PRE Removing old line PHP_VERSION and ILIAS_VERSION"
+		comment "Removing old line PHP version $PHP_VERSION and ILIAS version $ILIAS_VERSION"
 		grep -v "$ILIAS_VERSION.*php_$PHP_VERSION" $PHPUNIT_PATH > $PHPUNIT_PATH_TMP 
 
-		echo -e "$PRE Writing new line"
 		NEW_LINE="$JOB_URL,$JOB_ID,$ILIAS_VERSION,php_$PHP_VERSION,PHP $PHP_VERSION,${RESULTS[Warnings]},${RESULTS[Skipped]},${RESULTS[Incomplete]},${RESULTS[Tests]},${RESULTS[Errors]},${RESULTS[Risky]},$FAILURE";
-		echo -e "$PRE Writing line: $NEW_LINE"
-		echo -e "$NEW_LINE" >> "$PHPUNIT_PATH_TMP";
+		comment "Writing line: $NEW_LINE"
+		echo "$NEW_LINE" >> "$PHPUNIT_PATH_TMP";
 
 		if [ -e "$PHPUNIT_PATH_TMP" ]
 			then
@@ -57,16 +62,16 @@ if [ -e "$PHPUNIT_RESULTS_PATH" ]
 				rm "$PHPUNIT_RESULTS_PATH"
 		fi
 
-		echo -e "$PRE Handling result..."
+		comment "Handling result."
 
 		if [ -d "$TRAVIS_RESULTS_DIRECTORY" ]; then
-			echo -e "$PRE Starting to remove old temp directory..."
+			comment "Starting to remove old temp directory"
 			rm -rf "$TRAVIS_RESULTS_DIRECTORY"
 		fi
-		echo -e "$PRE Switching directory and clone results repository."
+		comment "Switching directory and clone results repository."
 		cd /tmp && git clone https://github.com/vollnixx/TravisResults
 		cd "$TRAVIS_RESULTS_DIRECTORY" && ./run.sh
 else
-	echo -e "$PRE No result file found, stopping!"
+	comment "No result file found, stopping!"
 	exit 99
 fi
