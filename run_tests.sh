@@ -1,17 +1,18 @@
 #!/bin/bash
+PRE="\t*** "
 
 # Init paths
 PHPUNIT_PATH="/tmp/phpunit_latest.csv"
 PHPUNIT_PATH_TMP="/tmp/phpunit_changed.csv"
 PHPUNIT_RESULTS_PATH="/tmp/phpunit_results"
 DICTO_PATH="/tmp/dicto_latest.csv"
+TRAVIS_RESULTS_DIRECTORY="/tmp/TravisResults"
 
-# Produce data
 libs/composer/vendor/phpunit/phpunit/phpunit --bootstrap ./libs/composer/vendor/autoload.php --configuration ./Services/PHPUnit/config/PhpUnitConfig.xml --exclude-group needsInstalledILIAS --verbose $@ | tee "$PHPUNIT_RESULTS_PATH"
 
-# Collect data
 if [ -e "$PHPUNIT_RESULTS_PATH" ]
 	then
+		echo -e "$PRE Collecting data..."
 		RESULT=`tail -n1 < "$PHPUNIT_RESULTS_PATH"`
 		SPLIT_RESULT=(`echo $RESULT | tr ':' ' '`)
 		if [ -e "include/inc.ilias_version.php" ]
@@ -42,31 +43,30 @@ if [ -e "$PHPUNIT_RESULTS_PATH" ]
 				FAILURE=true
 		fi
 
-		# Clean lines
+		echo -e "$PRE Removing old line PHP_VERSION and ILIAS_VERSION"
 		grep -v "$ILIAS_VERSION.*php_$PHP_VERSION" $PHPUNIT_PATH > $PHPUNIT_PATH_TMP 
 
-		# Write line
-		echo "NEW_LINE: $JOB_URL,$JOB_ID,$ILIAS_VERSION,php_$PHP_VERSION,PHP $PHP_VERSION,${RESULTS[Warnings]},${RESULTS[Skipped]},${RESULTS[Incomplete]},${RESULTS[Tests]},${RESULTS[Errors]},${RESULTS[Risky]},$FAILURE";
+		echo -e "$PRE Writing new line"
+		NEW_LINE="$JOB_URL,$JOB_ID,$ILIAS_VERSION,php_$PHP_VERSION,PHP $PHP_VERSION,${RESULTS[Warnings]},${RESULTS[Skipped]},${RESULTS[Incomplete]},${RESULTS[Tests]},${RESULTS[Errors]},${RESULTS[Risky]},$FAILURE";
+		echo -e "$PRE Writing line: $NEW_LINE"
+		echo -e "$NEW_LINE" >> "$PHPUNIT_PATH_TMP";
 
-		echo "$JOB_URL,$JOB_ID,$ILIAS_VERSION,php_$PHP_VERSION,PHP $PHP_VERSION,${RESULTS[Warnings]},${RESULTS[Skipped]},${RESULTS[Incomplete]},${RESULTS[Tests]},${RESULTS[Errors]},${RESULTS[Risky]},$FAILURE" >> "$PHPUNIT_PATH_TMP";
 		if [ -e "$PHPUNIT_PATH_TMP" ]
 			then
 				mv "$PHPUNIT_PATH_TMP" "$PHPUNIT_PATH"
 				rm "$PHPUNIT_RESULTS_PATH"
 		fi
 
-		# Result handling
-		TMP_DIRECTORY="/tmp/TravisResults"
-		if [ -d "$TMP_DIRECTORY" ]; then
-			echo "Starting to remove old tmp dir..."
-			rm -rf "$TMP_DIRECTORY"
-			echo "removing old tmp dir done."
-		fi
+		echo -e "$PRE Handling result..."
 
-		#Switch directory
+		if [ -d "$TRAVIS_RESULTS_DIRECTORY" ]; then
+			echo -e "$PRE Starting to remove old temp directory..."
+			rm -rf "$TRAVIS_RESULTS_DIRECTORY"
+		fi
+		echo -e "$PRE Switching directory and clone results repository."
 		cd /tmp && git clone https://github.com/vollnixx/TravisResults
-		cd "$TMP_DIRECTORY" && ./run.sh
+		cd "$TRAVIS_RESULTS_DIRECTORY" && ./run.sh
 else
-	echo "No result file found, stopping!"
+	echo -e "$PRE No result file found, stopping!"
 	exit 99
 fi
