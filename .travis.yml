@@ -4,8 +4,10 @@ stages:
 - unittests
 - name: dicto.sh
   if: TRAVIS_EVENT_TYPE = cron
-jobs:
+matrix:
   include:
+  - php: 7.1
+  - php: 7.2
   - stage: unittests
     script:
     - |
