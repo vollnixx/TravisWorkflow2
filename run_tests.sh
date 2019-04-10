@@ -50,6 +50,10 @@ if [ -e "$PHPUNIT_RESULTS_PATH" ]
 				FAILURE=true
 		fi
 
+		printLn "Cloning results repository, copy results file."
+		cd /tmp && git clone https://github.com/vollnixx/vollnixx.github.io
+		cp "$TRAVIS_RESULTS_DIRECTORY/data/phpunit_latest.csv" "$PHPUNIT_PATH"
+
 		printLn "Removing old line PHP version $PHP_VERSION and ILIAS version $ILIAS_VERSION"
 		grep -v "$ILIAS_VERSION.*php_$PHP_VERSION" $PHPUNIT_PATH > $PHPUNIT_PATH_TMP 
 
@@ -69,8 +73,8 @@ if [ -e "$PHPUNIT_RESULTS_PATH" ]
 			printLn "Starting to remove old temp directory"
 			rm -rf "$TRAVIS_RESULTS_DIRECTORY"
 		fi
+
 		printLn "Switching directory and clone results repository."
-		cd /tmp && git clone https://github.com/vollnixx/vollnixx.github.io
 		cp "$PHPUNIT_PATH" "$TRAVIS_RESULTS_DIRECTORY/data/"
 		cd "$TRAVIS_RESULTS_DIRECTORY" && ./run.sh
 else
