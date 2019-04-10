@@ -1,26 +1,21 @@
 language: php
-php:
-  - 7.0
-  - 7.1
-stages:
-- unittests
-- name: dicto.sh
-  if: TRAVIS_EVENT_TYPE = cron
-jobs:
+
+matrix:
   include:
-  - stage: unittests
+    - php: 7.1
+    - php: 7.2
+
     script:
     - |
       if [ "$TRAVIS_EVENT_TYPE" != "pull_request" ]; then
         ./run_tests.sh
       fi
-  - stage: dicto.sh
-    script:
     - |
       if [ "$TRAVIS_EVENT_TYPE" != "pull_request"  && "$TRAVIS_EVENT_TYPE" == "cron" ]; then
         echo "$TRAVIS_EVENT_TYPE" . " me, don't push me!"
        ./run_dicto.sh
       fi
+
 install:
 - cd .. && git clone https://github.com/vollnixx/TravisResults.git && cd TravisWorkflow2
 env:
