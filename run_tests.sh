@@ -71,6 +71,7 @@ if [ -e "$PHPUNIT_RESULTS_PATH" ]
 		fi
 		printLn "Switching directory and clone results repository."
 		cd /tmp && git clone https://github.com/vollnixx/vollnixx.github.io
+		cp "$PHPUNIT_PATH" "$TRAVIS_RESULTS_DIRECTORY/data/"
 		cd "$TRAVIS_RESULTS_DIRECTORY" && ./run.sh
 else
 	printLn "No result file found, stopping!"
