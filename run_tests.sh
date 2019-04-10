@@ -49,7 +49,7 @@ if [ -e "$PHPUNIT_RESULTS_PATH" ]
 			then
 				FAILURE=true
 		fi
-		
+
 		printLn "Cloning results repository, copy results file."
 		if [ -d "$TRAVIS_RESULTS_DIRECTORY" ]; then
 			printLn "Starting to remove old temp directory"
@@ -74,7 +74,7 @@ if [ -e "$PHPUNIT_RESULTS_PATH" ]
 		fi
 
 		printLn "Switching directory and clone results repository."
-		cp "$PHPUNIT_PATH" "$TRAVIS_RESULTS_DIRECTORY/data/"
+		cp "$PHPUNIT_PATH" "$TRAVIS_RESULTS_DIRECTORYdata/"
 		cd "$TRAVIS_RESULTS_DIRECTORY" && ./run.sh
 else
 	printLn "No result file found, stopping!"
