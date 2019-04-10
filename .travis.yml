@@ -6,8 +6,6 @@ stages:
   if: TRAVIS_EVENT_TYPE = cron
 jobs:
   include:
-    - php: 7.1
-    - php: 7.2
   - stage: unittests
     script:
     - |
