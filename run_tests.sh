@@ -49,14 +49,12 @@ if [ -e "$PHPUNIT_RESULTS_PATH" ]
 			then
 				FAILURE=true
 		fi
-
-		if [ -e "$PHPUNIT_PATH_TMP" ]
-			then
-				mv "$PHPUNIT_PATH_TMP" "$PHPUNIT_PATH"
-				rm "$PHPUNIT_RESULTS_PATH"
-		fi
-
+		
 		printLn "Cloning results repository, copy results file."
+		if [ -d "$TRAVIS_RESULTS_DIRECTORY" ]; then
+			printLn "Starting to remove old temp directory"
+			rm -rf "$TRAVIS_RESULTS_DIRECTORY"
+		fi
 		cd /tmp && git clone https://github.com/vollnixx/vollnixx.github.io
 		cp "$TRAVIS_RESULTS_DIRECTORY/data/phpunit_latest.csv" "$PHPUNIT_PATH"
 
@@ -69,9 +67,10 @@ if [ -e "$PHPUNIT_RESULTS_PATH" ]
 
 		printLn "Handling result."
 
-		if [ -d "$TRAVIS_RESULTS_DIRECTORY" ]; then
-			printLn "Starting to remove old temp directory"
-			rm -rf "$TRAVIS_RESULTS_DIRECTORY"
+		if [ -e "$PHPUNIT_PATH_TMP" ]
+			then
+				mv "$PHPUNIT_PATH_TMP" "$PHPUNIT_PATH"
+				rm "$PHPUNIT_RESULTS_PATH"
 		fi
 
 		printLn "Switching directory and clone results repository."
