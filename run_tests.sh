@@ -50,6 +50,12 @@ if [ -e "$PHPUNIT_RESULTS_PATH" ]
 				FAILURE=true
 		fi
 
+		if [ -e "$PHPUNIT_PATH_TMP" ]
+			then
+				mv "$PHPUNIT_PATH_TMP" "$PHPUNIT_PATH"
+				rm "$PHPUNIT_RESULTS_PATH"
+		fi
+
 		printLn "Cloning results repository, copy results file."
 		cd /tmp && git clone https://github.com/vollnixx/vollnixx.github.io
 		cp "$TRAVIS_RESULTS_DIRECTORY/data/phpunit_latest.csv" "$PHPUNIT_PATH"
@@ -60,12 +66,6 @@ if [ -e "$PHPUNIT_RESULTS_PATH" ]
 		NEW_LINE="$JOB_URL,$JOB_ID,$ILIAS_VERSION,php_$PHP_VERSION,PHP $PHP_VERSION,${RESULTS[Warnings]},${RESULTS[Skipped]},${RESULTS[Incomplete]},${RESULTS[Tests]},${RESULTS[Errors]},${RESULTS[Risky]},$FAILURE,$DATE";
 		printLn "Writing line: $NEW_LINE"
 		echo "$NEW_LINE" >> "$PHPUNIT_PATH_TMP";
-
-		if [ -e "$PHPUNIT_PATH_TMP" ]
-			then
-				mv "$PHPUNIT_PATH_TMP" "$PHPUNIT_PATH"
-				rm "$PHPUNIT_RESULTS_PATH"
-		fi
 
 		printLn "Handling result."
 
