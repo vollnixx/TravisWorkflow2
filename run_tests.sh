@@ -35,6 +35,7 @@ if [[ -e "$PHPUNIT_RESULTS_PATH" && "$TRAVIS_EVENT_TYPE" != "pull_request" ]]
 		JOB_URL=`echo $TRAVIS_JOB_WEB_URL`
 		FAILURE=false
 		declare -A RESULTS=([Tests]=0 [Assertions]=0 [Errors]=0 [Warnings]=0 [Skipped]=0 [Incomplete]=0 [Risky]=0);
+
 		for TYPE in "${!RESULTS[@]}"; 
 			do 
 				for PHP_UNIT_RESULT in "${!SPLIT_RESULT[@]}"; 
@@ -47,7 +48,7 @@ if [[ -e "$PHPUNIT_RESULTS_PATH" && "$TRAVIS_EVENT_TYPE" != "pull_request" ]]
 					done 
 			done
 
-		if [ ${RESULTS[Errors]} > 0 ]
+		if [ ${RESULTS[Errors]} -gt 0 ]
 			then
 				FAILURE=true
 		fi
@@ -76,9 +77,9 @@ if [[ -e "$PHPUNIT_RESULTS_PATH" && "$TRAVIS_EVENT_TYPE" != "pull_request" ]]
 				rm "$PHPUNIT_RESULTS_PATH"
 		fi
 
-		printLn "Switching directory and run results handling."
-		cp "$PHPUNIT_PATH" "$TRAVIS_RESULTS_DIRECTORY/data/"
-		cd "$TRAVIS_RESULTS_DIRECTORY" && ./run.sh
+		#printLn "Switching directory and run results handling."
+		#cp "$PHPUNIT_PATH" "$TRAVIS_RESULTS_DIRECTORY/data/"
+		#cd "$TRAVIS_RESULTS_DIRECTORY" && ./run.sh
 else
 	printLn "No result file found, stopping!"
 	exit 99
