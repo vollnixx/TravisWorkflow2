@@ -17,6 +17,8 @@ DATE=`date '+%Y-%m-%d-%H:%M:%S'`
 
 libs/composer/vendor/phpunit/phpunit/phpunit --bootstrap ./libs/composer/vendor/autoload.php --configuration ./Services/PHPUnit/config/PhpUnitConfig.xml --exclude-group needsInstalledILIAS --verbose $@ | tee "$PHPUNIT_RESULTS_PATH"
 
+echo "TRAVIS_EVENT_TYPE: $TRAVIS_EVENT_TYPE"
+
 if [[ -e "$PHPUNIT_RESULTS_PATH" && "$TRAVIS_EVENT_TYPE" != "pull_request" ]]
 	then
 		printLn "Collecting data."
