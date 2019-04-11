@@ -17,7 +17,7 @@ DATE=`date '+%Y-%m-%d-%H:%M:%S'`
 
 libs/composer/vendor/phpunit/phpunit/phpunit --bootstrap ./libs/composer/vendor/autoload.php --configuration ./Services/PHPUnit/config/PhpUnitConfig.xml --exclude-group needsInstalledILIAS --verbose $@ | tee "$PHPUNIT_RESULTS_PATH"
 
-echo "TRAVIS_EVENT_TYPE: $TRAVIS_EVENT_TYPE"
+printLn "Travis: event type ($TRAVIS_EVENT_TYPE), job number ($TRAVIS_JOB_NUMBER), pull request ($TRAVIS_PULL_REQUEST), commit ($TRAVIS_COMMIT) "
 
 if [[ -e "$PHPUNIT_RESULTS_PATH" && "$TRAVIS_EVENT_TYPE" != "pull_request" ]]
 	then
@@ -75,7 +75,7 @@ if [[ -e "$PHPUNIT_RESULTS_PATH" && "$TRAVIS_EVENT_TYPE" != "pull_request" ]]
 				rm "$PHPUNIT_RESULTS_PATH"
 		fi
 
-		printLn "Switching directory and clone results repository."
+		printLn "Switching directory and run results handling."
 		cp "$PHPUNIT_PATH" "$TRAVIS_RESULTS_DIRECTORY/data/"
 		cd "$TRAVIS_RESULTS_DIRECTORY" && ./run.sh
 else
