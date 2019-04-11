@@ -58,7 +58,6 @@ if [[ -e "$PHPUNIT_RESULTS_PATH" && "$TRAVIS_EVENT_TYPE" != "pull_request" ]]
 			rm -rf "$TRAVIS_RESULTS_DIRECTORY"
 		fi
 
-		sleep $[ ( $RANDOM % 5 )  + 1 ]s
 		cd /tmp && git clone https://github.com/vollnixx/vollnixx.github.io
 		cp "$TRAVIS_RESULTS_DIRECTORY/data/phpunit_latest.csv" "$PHPUNIT_PATH"
 
