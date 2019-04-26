@@ -1,18 +1,18 @@
 language: php
-
 matrix:
   include:
-    - php: 7.2
-    - php: 7.3
-
+  - php: 7.2
+  - php: 7.3
 script:
-  - ./run_tests.sh;
-  - if [[ "$TRAVIS_EVENT_TYPE" == "cron" ]]; then ./run_dicto.sh; fi
+- "./run_tests.sh;"
+- if [[ "$TRAVIS_EVENT_TYPE" == "cron" ]]; then ./run_dicto.sh; fi
 addons:
-    apt:
-        packages:
-            - unzip
-
+  apt:
+    packages:
+    - unzip
+install:
+- cd ./libs/composer && composer install && cd ../..
 env:
   global:
-  - secure: OFGfehS+MnXXTAlrId80su4FuL4lF6tEvPii6RVCbgg33roqO6fUV+bN+ZRXqp3cLLbHL55ztAQgEf/I8IG5bvHgbrdWqyAgDPB+o54lO+ZKR7iAtsfrWIzBIJQc49puC1VbbUVFfaKl/PU5X1u8wdDGaYRtBkHd9u3Hjq0uaNeuSMG073MtStKOK2eCahNbgqtflmilhq3vfGBJBgEU/O1LV9sE54LNGb6qhO/acYAOpkSPdc793JBYWg6ShEmruTtWb8pFCdXQvMvgVMlbjgL4NbCIa5NHiMAtgzhYe3/YYSIovvF/hzj6pwIpU0Y/WpB/BG6KRamXTjYeFRGRBlA89GzgSsuz0Bc91Eh3stKxsizUqM89Byj9cyaO8CZfWCOydZ09yqRcyx7oPRZz9ANwohzX3qsgzPSQHBcoISqq2W01bG+gHHivpqQLj2cAlnTVfApjpqg1i4H5ZhbWwEk+z2BrNwM6nmgv2Ok+xmh9gjuWljbtdIldee64dOBCcNHcSytJ6pN7U9Y/DKILlU0MSkiJfzGgvJLbwGiXu2ZIwpqMWlAFskzeM5ZB3HkKxMcjwk5GWvJf7linU4/FL6jLLnKVzrsTF5eGnlKjm1ZTJsJVb5/Zr4xkLC3jO4U9dlkcduKXnLn7dw9ILok4mlanDLcjqBgAaFwQuDtMoeg=
+  - secure: r1xVIF8TlYZJQ9EJSNaNQOfn6/mVek3o2YkGBlAy94FeTMo1X+jCgrPrD7akI1ZIOzhQup/hbl6dvIsX6w4TmTHJb+d7RVQ/mmhHalTXcraHnhUQytEIex9ptsTA5hNYaalZ1FYDWpYJ3FZi4tUsGRQsgvfMSgUEuVlDacbN1TwGLSDYvMPAidAEPwBhtbvtjDVxwieRhtgsE5V6JtULeCQeBQ6H64QYoVrf7hIWiOXs7ZX/cAXbqMg+HmlzqcHuZT8fJRtBw2N2tLaOt8685gcznA5xDEl4qrZVXoLIXmwG9p130aPGRzTB33O9xD3ZXb0Bstt7aROexvJUQ6YDtcp7GBFiikn8jcR9t2gK4YOVFqh90kLVkBXRPC0tSV3hJvFJhc8frh/igN1sGrPpqCgc+RxcdNZ12fconmEM5jRPlxrRicottABAM5h/nJ5UgkZbNSYCQv9Qbcq3jgLQS/orqiUHneii/dNTFCeNBpZUa+2X9mkBuGlq2dJsGG6LuiWJqg1JslXbTaKMQgS3Z2gZPojsotibxZ7T2Jc0QVkQev8RTdcd73q1LAqC9ptXpEnKA7i4AKi5UrwaOWG4Mue53uksx7YFKZP2409tip3u8pbvnBdWILRO/ORoAzaBQtgyPNsM+G5CYazlLpIwc8dqx/wgTMVZKUicqz91cTU=
+  - secure: kVT9WuQY675V4/68u/E2EZEztuEYsblNnMRFfuxGHNx1u8DlcZLjbCPxzMHWE3q/zWLoRmXLniBQrNxhVf60xe4uqcZ+u3kXJXM2dWdXzD2nCG8XHmmGjzfQbdCjPAKoAZ/vg5HEwGhGtnVrKOPEYKsmNppfCVxH+/6S399UfgymDxMkJQJPHKwWAXaXa4TfDBaCm96wYSbMeJkuf7sKcyxGHtTbGhCR9MPF+x3aC/PLvBS7jyCbtbfOFi6S+dbY/MQpmXZ/br1BezMWBGlzxhnCnr2m6ekrvt/RvEliVhK8IyiWOxAV+9uoohmnWDbiDYhuyGSPKwj/S/qug83ZHJ6XIAhkoTyrAH1n2NtLCfUZ3IMNCsxppGtICe1vEBjTseJD/LqupfhLWnoB22dWCmPYUq06P23z6G4PEROfn/R4d/sAQVzY74ngiNOKaBivn8hwqoXW876yA30wThOKMrDqXlyRdewslI6VYk8ylSCv2Oa1fDfBR8UouaS1thz/v5ij4BQcNmw7gKkG20Qc8GG+jRCexS5PvvAUzl5d04rFFfMy7B1eOYKFOedD2jDdzjtGgQiitfAlRRGKkVEFYvjeaGUs6r6JQK2wyedV4d1zpal2p/faIFLwIvRvXyR1YLBOX/U6ihNTozmqdJq8xN4oqMDf52gdlG/hygxFrZM=
